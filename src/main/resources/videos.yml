@@ -2,7 +2,8 @@ videos:
 #kurento服务地址
   kurento:
     url:
-      ws://192.168.201.128:8888/kurento
+      #ws://192.168.201.128:8888/kurento
+      ws://192.168.5.123:8888/kurento
 #景区配置
   scenicInfos:
     #黄酒小镇
