@@ -71,7 +71,7 @@ public class RtspPreviewController {
 
     private String getRtspUrlFor(String code) {
         StringBuilder builder = new StringBuilder();
-        Map<String,String> videoConfig = config.getHjxzVodeos().get(code);
+        Map<String,Object> videoConfig = (Map<String, Object>)config.getScenicInfos().get("hjxzInfos").get(code);
         if (code.equals(0)) {
             builder.append("");
         } else {

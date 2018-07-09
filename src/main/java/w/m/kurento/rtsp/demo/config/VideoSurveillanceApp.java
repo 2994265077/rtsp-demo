@@ -4,6 +4,7 @@ import org.kurento.client.KurentoClient;
 import org.kurento.client.KurentoClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
@@ -35,6 +36,9 @@ public class VideoSurveillanceApp extends AbstractWebSocketMessageBrokerConfigur
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoSurveillanceApp.class);
 
     private Map<String, MediaSession> sessions = new ConcurrentHashMap<>();
+
+    @Value("${videos.kurento.url}")
+    private String kurentoUrl;
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
@@ -82,7 +86,7 @@ public class VideoSurveillanceApp extends AbstractWebSocketMessageBrokerConfigur
 
     @Bean
     public KurentoClient kurentoClient() {
-        return new KurentoClientBuilder().setKmsWsUri("ws://192.168.201.128:8888/kurento").connect();
+        return new KurentoClientBuilder().setKmsWsUri(kurentoUrl).connect();
     }
 
     @Bean

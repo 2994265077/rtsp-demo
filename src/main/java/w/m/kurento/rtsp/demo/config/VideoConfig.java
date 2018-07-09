@@ -29,13 +29,13 @@ import java.util.Map;
 @Component
 @ConfigurationProperties(prefix = "videos")
 public class VideoConfig {
-    private Map<String,Map<String,String>> hjxzVodeos = new HashMap<>();
+    private Map<String,Map<String,Object>> scenicInfos = new HashMap<>();
 
-    public Map<String, Map<String, String>> getHjxzVodeos() {
-        return hjxzVodeos;
+    public Map<String,Map<String,Object>> getScenicInfos() {
+        return scenicInfos;
     }
 
-    public void setHjxzVodeos(Map<String, Map<String, String>> hjxzVodeos) {
-        this.hjxzVodeos = hjxzVodeos;
+    public void setScenicInfos(Map<String,Map<String,Object>> scenicInfos) {
+        this.scenicInfos = scenicInfos;
     }
 }
